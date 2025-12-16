@@ -13,10 +13,10 @@ export default definePlugin({
 
     patches: [
         {
-            find: "maybeConvertToWebP",
+            find: "tryConvertToWebP",
             replacement: {
-                match: /maybeConvertToWebP\([^\)]*\)/,
-                replace: "return;"
+                match: /static\s+async\s+tryConvertToWebP\([^\)]*\)\s*\{/,
+                replace: "static async tryConvertToWebP() { return;"
             }
         }
     ]
